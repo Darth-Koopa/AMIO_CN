@@ -1,0 +1,231 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x30000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= This is the \z{7ff,200}Wario-Man Super Store\z{7ff,0}.\n
+	+ Choose a department!
+     1	= These are the \z{7ff,200}games \z{7ff,0}available! Try them\n
+	+ out in the \z{7ff,200}Game Blender\z{7ff,0}.
+     2	= Check out \z{7ff,200}records\z{7ff,0} in here! Don't just\n
+	+ listen--play with 'em!
+     3	= You'll find \z{7ff,200}comics\z{7ff,0} in this section! Read\n
+	+ all you like--we don't mind!
+     4	/
+     5	= \z{7ff,200}Games\z{7ff,0} made at my company! Play\n
+	+ them in the \z{7ff,200}Game Blender\z{7ff,0}.
+     6	= These are the \z{7ff,200}games\z{7ff,0} you've collected!\n
+	+ Store up to 72!
+     7	= Here you can play a medley of games.\n
+	+ Go for the \z{7ff,200}high score\z{7ff,0}!
+     8	= \z{7ff,200}Records\z{7ff,0} made at my company! All of\n
+	+ them are solid-gold hits!
+     9	= These are the \z{7ff,200}records\z{7ff,0} you've collected!\n
+	+ Store up to 72!
+     a	/
+     b	= \z{7ff,200}Comics\z{7ff,0} made at my company! Stop\n
+	+ laughing when you can't breathe!
+     c	= These are the \z{7ff,200}comics\z{7ff,0} you've collected.\n
+	+ Store up to 72!
+     d	/
+     e	= Arrange games however you like! Grab\n
+	+ \z{7ff,200}games\z{7ff,0} with the \z{7ff,100}A and B Buttons\z{7ff,0}.
+     f	= Arrange records however you like! Grab\n
+	+ \z{7ff,200}records \z{7ff,0}with the\z{7ff,200} \z{7ff,100}A and B
+	+  Buttons\z{7ff,0}.
+    10	= Arrange comics however you like! Grab\n
+	+ \z{7ff,200}comics \z{7ff,0}with the\z{7ff,200} \z{7ff,100}A and B
+	+  Buttons\z{7ff,0}.
+    11	= "I'm-a Wario-Man, hero sandwich! People in the park\n
+	+ need my help!"
+    12	= "I'm Dribble! Spitz and I entered a rally, but can\n
+	+ our taxi hack it?"
+    13	= "I'm Kat! My partner, Ana, and I patrol the skies\n
+	+ and keep them safe from flying evil!"
+    14	= "I'm 18-Volt, with twice the power of that other guy\n
+	+ you might be thinking of!"
+    15	= \z{7ff,200}Wario-Man Software stage\z{7ff,0}!\n
+	+ \z{7ff,500}(Score 25 or more points and...)
+    16	= \z{7ff,200}Wario-Man Software\z{7ff,0} at high speed!\n
+	+ \z{7ff,500}(Score 10 or more points and...)
+    17	/
+    18	/
+    19	= Games from the first D.I.Y. section all\n
+	+ shuffled up!
+    1a	= Games from the second D.I.Y. section all\n
+	+ shuffled up!
+    1b	= Games from the third D.I.Y. section all\n
+	+ shuffled up!
+    1c	= Games from the fourth D.I.Y. section all\n
+	+ shuffled up!
+    1d	= This stage features games shuffled from all\n
+	+ D.I.Y. sections!
+    1e	= This stage shuffles games from all D.I.Y. sections\n
+	+ at ultra-speed!
+    1f	/
+    20	/
+    21	= This stage shuffles games in from everywhere in\n
+	+ the Wario-Man Super Store!
+    22	= This stage shuffles all Wario-Man Super Store games\n
+	+ at ultra-speed!
+    23	/
+    24	= Battle with up to four players in a shuffle of all\n
+	+ \z{7ff,200}Wario-Man Super Store games\z{7ff,0}!
+    25	= This stage includes all sorts\n
+	+ of games featuring Wario!
+    26	= This stage has sci-fi and action\n
+	+ games with ninjas and robots!
+    27	= Get ready for games featuring\n
+	+ animals in this stage!
+    28	= This stage features classic\n
+	+ Nintendo franchises!
+    29	= Wario-Man Software games are\n
+	+ all shuffled up in this stage!
+    2a	= Wario-Man Software games are\n
+	+ pushed to ultra-speed here!
+    2b	/
+    2c	/
+    2d	= Games from the first D.I.Y.\n
+	+ section are all shuffled up here!
+    2e	= Games from the second D.I.Y.\n
+	+ section are all shuffled up here!
+    2f	= Games from the third D.I.Y.\n
+	+ section are all shuffled up here!
+    30	= Games from the fourth D.I.Y.\n
+	+ section are all shuffled up here!
+    31	= Games from all D.I.Y. sections\n
+	+ are shuffled up here!
+    32	= Games from all D.I.Y. sections\n
+	+ are pushed to ultra-speed here!
+    33	/
+    34	/
+    35	= This stage features games from\n
+	+ all sections, shuffled up.
+    36	= This stage pushes games from\n
+	+ all sections to ultra-speed!
+    37	/
+    38	= Up to four players duke it out\n
+	+ in this multiplayer mode!
+    39	= Wario-Man
+    3a	= Dribble & Spitz
+    3b	= Kat & Ana
+    3c	= 18-Volt
+    3d	= Wario-Man Software: Shuffle
+    3e	= Wario-Man Software: Ultra Hard!
+    3f	/
+    40	/
+    41	= D.I.Y. 1: Shuffle
+    42	= D.I.Y. 2: Shuffle
+    43	= D.I.Y. 3: Shuffle
+    44	= D.I.Y. 4: Shuffle
+    45	= D.I.Y. Mix: Shuffle
+    46	= D.I.Y. Mix: Ultra Hard!
+    47	/
+    48	/
+    49	= Mix All: Shuffle
+    4a	= Mix All: Ultra Hard!
+    4b	/
+    4c	= Mix All: Versus
+    4d	= How to Play \z{7ff,200}Versus
+    4e	= Delete\z{7ff,200} high scores\z{7ff,0}?
+    4f	= \z{7ff,200}Versus \z{7ff,0}is a mode where up\n
+	+ to four players can play\n
+	+ head to head. The last\n
+	+ player to survive wins.
+    50	= You will begin by pressing\n
+	+ the \z{7ff,100}1 and 2 Buttons \z{7ff,0}to register\n
+	+ Wii Remotes. Once all remotes\n
+	+ are registered, \z{7ff,100}Player 1 \z{7ff,0}will\n
+	+ press \z{7ff,200}OK \z{7ff,0}to start the game.
+    51	= Starting with \z{7ff,100}Player 1\z{7ff,0}, each\n
+	+ player selects a \z{7ff,200}position \z{7ff,0}on\n
+	+ the screen. Once all players\n
+	+ are set, play begins!
+    52	= When your \z{7ff,200}position\z{7ff,0} lights\n
+	+ up, it's your turn. Try\n
+	+ to win the \z{7ff,200}game\z{7ff,0}, but be\n
+	+ careful--other players can\n
+	+ sabotage your efforts!
+    53	= Lose four times and it's \n
+	+ game over for you! Last\n
+	+ player standing wins!
+    54	= Play this game?
+    55	= Play this record?
+    56	= Read this comic?
+    57	= Wario-Man
+    58	= Dribble & \n
+	+ Spitz
+    59	= Kat & Ana
+    5a	= 18-Volt
+    5b	= Wario-Man\n
+	+ Shuffle
+    5c	= Wario-Man\n
+	+ Ultra Hard!
+    5d	/
+    5e	/
+    5f	= D.I.Y. 1:\n
+	+ Shuffle
+    60	= D.I.Y. 2:\n
+	+ Shuffle
+    61	= D.I.Y. 3:\n
+	+ Shuffle
+    62	= D.I.Y. 4:\n
+	+ Shuffle
+    63	= D.I.Y. Mix:\n
+	+ Shuffle
+    64	= D.I.Y. Mix:\n
+	+ Ultra Hard!
+    65	/
+    66	/
+    67	= Mix All:\n
+	+ Shuffle
+    68	= Mix All:\n
+	+ Ultra Hard!
+    69	/
+    6a	= Mix All:\n
+	+ Versus
+

@@ -1,0 +1,300 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x20000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= What will you \z{7ff,200}ship\z{7ff,0} to the Nintendo DS?\n
+	+ Select a \z{7ff,200}product\z{7ff,0} and press the \z{7ff,100}A Button
+	+ \z{7ff,0}.
+     1	= Choose to \z{7ff,200}ship\z{7ff,0} or \z{7ff,200}receive\z{7ff,0} \n
+	+ with your DS system.
+     2	= Decide where to stock the \z{7ff,200}product\z{7ff,0}.\z{7ff,200}\n
+	+ \z{7ff,0}Grab products with the \z{7ff,100}A and B Buttons\z{7ff,0}.
+     3	= This is the \z{7ff,200}Distribution Centre\z{7ff,0}, where\n
+	+ you send and receive \z{7ff,200}products\z{7ff,0}.
+     4	= You can exchange \z{7ff,200}products\z{7ff,0} with \n
+	+ WarioWare: D.I.Y. on Nintendo DS.\040
+     5	= You can connect to \z{7ff,200}Nintendo Wi-Fi\n
+	+ Connection \z{7ff,0}and receive new \z{7ff,200}games\z{7ff,0}.
+     6	= You can exchange \z{7ff,200}products\z{7ff,0} with other\n
+	+ owners of WarioWare: D.I.Y. Showcase.
+     7	= The \z{7ff,200}D.I.Y. Friend Notification\n
+	+ Switch \z{7ff,0}is \z{7ff,300}OFF\z{7ff,0}.
+     8	= The \z{7ff,200}D.I.Y. Friend Notification\n
+	+ Switch \z{7ff,0}is \z{7ff,100}ON\z{7ff,0}.
+     9	= Select a\z{7ff,200} D.I.Y. Friend\z{7ff,0} and press the \z{7ff,100}A
+	+  Button\z{7ff,0}. \n
+	+ When you've made your choice, press \z{7ff,200}OK\z{7ff,0}.
+     a	= This is where you select \z{7ff,200}Wii Friends \z{7ff,0}to\n
+	+ ship to--up to eight at once!
+     b	= Choose which \z{7ff,200}product\z{7ff,0} to \z{7ff,200}ship\z{7ff,0}.
+     c	= What will you \z{7ff,200}ship\z{7ff,0} to your \z{7ff,200}Wii Friend
+	+ \z{7ff,0}?\n
+	+ Select a \z{7ff,200}product\z{7ff,0} and press the \z{7ff,100}A Button
+	+ \z{7ff,0}.
+     d	= This displays \z{7ff,200}D.I.Y.\z{7ff,0} \z{7ff,200}Friends 
+	+ \z{7ff,0}only.\n
+	+ Right now it is \z{7ff,300}OFF\z{7ff,0}.
+     e	= This displays \z{7ff,200}D.I.Y.\z{7ff,0} \z{7ff,200}Friends 
+	+ \z{7ff,0}only.\n
+	+ Right now it is \z{7ff,100}ON\z{7ff,0}.
+     f	= No \z{7ff,200}staff\z{7ff,0} are available, so you can't\n
+	+ \z{7ff,200}ship\z{7ff,0} any \z{7ff,200}games \z{7ff,0}right now.
+    10	= There's one \z{7ff,200}staff member\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} one more \z{7ff,200}game\z{7ff,0}.
+    11	= There are two \z{7ff,200}staff members\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} two more \z{7ff,200}games\z{7ff,0}.
+    12	= No \z{7ff,200}staff\z{7ff,0} are available, so you can't\n
+	+ \z{7ff,200}ship\z{7ff,0} any \z{7ff,200}comics \z{7ff,0}right now.
+    13	= There's one \z{7ff,200}staff member\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} one more \z{7ff,200}comic\z{7ff,0}.
+    14	= There are two \z{7ff,200}staff members\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} two more \z{7ff,200}comics\z{7ff,0}.
+    15	= No \z{7ff,200}staff\z{7ff,0} are available, so you can't\n
+	+ \z{7ff,200}ship\z{7ff,0} any \z{7ff,200}records \z{7ff,0}right now.
+    16	= There's one \z{7ff,200}staff member\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} one more \z{7ff,200}record\z{7ff,0}.
+    17	= There are two \z{7ff,200}staff members\z{7ff,0} available, \n
+	+ so you can \z{7ff,200}ship\z{7ff,0} two more \z{7ff,200}records
+	+ \z{7ff,0}.
+    18	= \z{7ff,200}Ship\z{7ff,0} a \z{7ff,200}product\z{7ff,0} to a 
+	+ \z{7ff,200}D.I.Y. Wii Friend\z{7ff,0}.
+    19	= It looks like no \z{7ff,200}staff\z{7ff,0} are available, so\n
+	+ you can't \z{7ff,200}ship\z{7ff,0} to \z{7ff,200}Wii Friends 
+	+ \z{7ff,0}right now.
+    1a	= When you're ready, press \z{7ff,200}OK\z{7ff,0} to \z{7ff,200}ship
+	+ \z{7ff,0}.
+    1b	= D S
+    1c	= NinSoft Store
+    1d	= W i i
+    1e	= What?
+    1f	= Who?
+    20	= Receive “\z{7fe,0}”?
+    21	= Already have “\z{7fe,0}”.
+    22	= Receiving...
+    23	= A shipment has arrived!
+    24	= A shipment from \z{7fe,0} has arrived!
+    25	= Shipping...
+    26	= D.I.Y. Friend Notification Switch
+    27	= Cancel shipment of “\z{7fe,0}”?
+    28	= Cancelling...\n
+	+ Please wait.
+    29	= The \z{7ff,200}product\z{7ff,0} in the hand will be deleted.\n
+	+ Is that OK? Seriously?
+    2a	= Searching for a DS system in range...
+    2b	= Found a DS system!
+    2c	= Sending catalogue data to the\n
+	+ DS system. Please wait.
+    2d	= Awaiting input from the DS system.
+    2e	= Place the \z{7ff,200}product\z{7ff,0} on the\n
+	+ shelf on the DS system.
+    2f	= Connecting to \z{7ff,200}Nintendo WFC\z{7ff,0}...\n
+	+ Please wait.
+    30	= Disconnect from \z{7ff,200}Nintendo WFC\z{7ff,0}?
+    31	= Disconnecting from \z{7ff,200}Nintendo WFC\z{7ff,0}.
+    32	= Disconnected from\z{7ff,200} Nintendo WFC\z{7ff,0}.
+    33	= Unable to connect to \z{7ff,200}Nintendo Wi-Fi\n
+	+ Connection\z{7ff,0}. For help, check the\n
+	+ software instruction booklet, or\n
+	+ visit support.nintendo.com.\z{7fe,0}
+    34	= Either \z{7ff,200}Nintendo Wi-Fi Connection \z{7ff,0}is\n
+	+ experiencing high traffic volumes or the\n
+	+ service is down. Please try again later.\n
+	+ For help, visit support.nintendo.com.\z{7fe,0}
+    35	= The \z{7ff,200}Nintendo Wi-Fi Connection \z{7ff,0}service\n
+	+ for this software has been discontinued.\n
+	+ Visit support.nintendo.com for a list of\n
+	+ current Nintendo Wi-Fi Connection-\n
+	+ compatible software.\z{7fe,0}\040
+    36	= There is not enough available space in\n
+	+ the \z{7ff,200}Wii System Memory\z{7ff,0}. Either turn \z{7ff,300}off\n
+	+ \z{7ff,0}the console or return to the \z{7ff,200}Wii Menu\z{7ff,0}. 
+	+ \z{7fe,0}
+    37	= The \z{7ff,200}Wii System Memory\z{7ff,0} has been\n
+	+ damaged. Refer to the Wii Operations\n
+	+ Manual for details.\z{7fe,0}
+    38	= Unable to connect to the internet.\n
+	+ Confirm the internet settings of the\n
+	+ \z{7ff,200}Wii console\z{7ff,0}.\z{7fe,0}
+    39	/
+    3a	= Communication error. You have been\n
+	+ disconnected from Nintendo Wi-Fi\n
+	+ Connection. Please try again. For help,\n
+	+ visit support.nintendo.com. \z{7fe,0}
+    3b	= Communication error. Please try again.\n
+	+ For help, visit support.nintendo.com. \z{7fe,0}
+    3c	= Download failed. Please try again.\n
+	+ For help, visit support.nintendo.com. \z{7fe,0}
+    3d	= Nintendo Wi-Fi Connection cannot be\n
+	+ used because an error has occurred.\n
+	+ Reset and try again. For help, visit\n
+	+ support.nintendo.com. \z{7fe,0}
+    3e	= A communication error occurred.
+    3f	= \n
+	+ (Error code: \z{7fe,10000})
+    40	= Finishing...\n
+	+ Please wait.
+    41	= Connection was interrupted.
+    42	= A communications error occurred.
+    43	= Cannot perform \z{7ff,200}wireless communications\z{7ff,0}.
+    44	= The \z{7ff,200}NinSoft Store\z{7ff,0} is closed.
+    45	= Receiving \z{7ff,200}product\z{7ff,0}...\n
+	+ Please wait.
+    46	= Downloading \z{7ff,200}Big Name Bio\z{7ff,0}...\n
+	+ Please wait.
+    47	= This is where \z{7ff,200}games\z{7ff,400} \z{7ff,0}made by Big\n
+	+ Names will eventually show up.
+    48	= Downloading information from\n
+	+ the \z{7ff,200}NinSoft Store\z{7ff,0}...\n
+	+ Please wait.
+    49	= This is where \z{7ff,200}challenge-winning games\z{7ff,400}\n
+	+ \z{7ff,0}will show up...eventually.
+    4a	= There'll be new \z{7ff,200}games \z{7ff,0}here almost\n
+	+ every week! Eventually...
+    4b	= Already have \z{7fe,0}.
+    4c	= A communication error occurred.
+    4d	= Checking if you can \z{7ff,200}ship\z{7ff,0}...\n
+	+ Please wait.
+    4e	= Turn \z{7ff,200}D.I.Y. Friend Notification\n
+	+ Switch \z{7ff,0}to\z{7ff,200} \z{7ff,300}OFF\z{7ff,0}?
+    4f	= Turn \z{7ff,200}D.I.Y. Friend Notification\n
+	+ Switch \z{7ff,0}to\z{7ff,200} \z{7ff,100}ON\z{7ff,0}?
+    50	= Checking status of the \z{7ff,200}D.I.Y. Friend \n
+	+ Notification Switch\z{7ff,0}...\n
+	+ Please wait.
+    51	= Turning\z{7ff,200} \z{7ff,0}the \z{7ff,200}D.I.Y. Friend\n
+	+ Notification Switch \z{7ff,0}to\z{7ff,200} \z{7ff,300}OFF\z{7ff,0}...\n
+	+ Please wait.
+    52	= Turning the\z{7ff,100} \z{7ff,200}D.I.Y. Friend\n
+	+ Notification Switch \z{7ff,0}to \z{7ff,100}ON\z{7ff,0}...\n
+	+ Please wait.
+    53	= Updating \z{7ff,200}D.I.Y. Friend\n
+	+ Notification data\z{7ff,0}... Please wait.\040
+    54	= When you turn the \z{7ff,200}D.I.Y. Friend\n
+	+ Notification Switch \z{7ff,0}to \z{7ff,300}OFF\z{7ff,0} you might
+	+  still\n
+	+ receive \z{7ff,200}games\z{7ff,0}, \z{7ff,200}records\z{7ff,0} and 
+	+ \z{7ff,200}comics\z{7ff,0} for a\n
+	+ short while.
+    55	= \z{7ff,200}D.I.Y. Friend Notification Switch\z{7ff,0}\n
+	+ is \z{7ff,100}ON\z{7ff,0}!
+    56	= No more shipments.
+    57	= Couldn't turn\z{7ff,200} \z{7ff,300}OFF\z{7ff,0} the \n
+	+ \z{7ff,200}D.I.Y. Friend Notification Switch\z{7ff,0}.\n
+	+ Please try again.
+    58	= Couldn't turn \z{7ff,100}ON\z{7ff,0} the \n
+	+ \z{7ff,200}D.I.Y. Friend Notification Switch\z{7ff,0}.
+    59	= Couldn't turn \z{7ff,100}ON\z{7ff,0} the \n
+	+ \z{7ff,200}D.I.Y. Friend Notification Switch\z{7ff,0}.\n
+	+ Please try again.
+    5a	= Turn this switch \z{7ff,100}ON\z{7ff,0} to recognise \n
+	+ \z{7ff,200}Wii Friends\z{7ff,0} who have WarioWare: \n
+	+ D.I.Y. Showcase so you can send and \n
+	+ receive \z{7ff,200}games\z{7ff,0}, \z{7ff,200}records\z{7ff,0} and 
+	+ \z{7ff,200}comics\z{7ff,0}.
+    5b	= Turn the \z{7ff,200}D.I.Y. Friend Notification\n
+	+ Switch \z{7ff,0}to \z{7ff,100}ON\z{7ff,0}.
+    5c	= The \z{7ff,200}D.I.Y. Friend Notification Switch\z{7ff,0} is\n
+	+ \z{7ff,300}OFF\z{7ff,0}, but a shipment has arrived!
+    5d	= Looks like there're\n
+	+ no shipments.
+    5e	= You can turn the \z{7ff,200}D.I.Y. Friend\n
+	+ Notification Switch\z{7ff,0} to \z{7ff,100}ON\z{7ff,0} at\n
+	+ any time with this switch.
+    5f	= Distribution Centre
+    60	= Big Name Games
+    61	= NinSoft Store
+    62	= Theme Games
+    63	= Weekly Games
+    64	= Send to Wii Friend(s)
+    65	= Who?
+    66	= Games made by people you've heard\n
+	+ of...or not.
+    67	= Eventually there will be games here made\n
+	+ by people you've heard of...or not.
+    68	= Announcing challenge winners!
+    69	= Challenge-winning games. Eventually...
+    6a	= There'll be new games here almost\n
+	+ every week!
+    6b	= No new products are coming,\n
+	+ but all past products are available.
+    6c	= Big Name Games
+    6d	= Sort Order
+    6e	= Theme Games
+    6f	= Details
+    70	= Theme No. \z{7fe,10000}
+    71	= Weekly Games
+    72	= Big Names
+    73	= Newest
+    74	= Oldest
+    75	= By Title
+    76	= Game Sorting
+    77	= \z{bfe,1012530326400}/\z{bfe,1002530326400} - \z{bfe,1032530326400}/
+	+ \z{bfe,1022530326400}
+    78	= Entry Period
+    79	= Theme
+    7a	= Available until\n
+	+ \z{bfe,1012530326400}/\z{bfe,1002530326400}!
+    7b	= \z{7ff,100}Out of Stock
+    7c	= ??/??
+    7d	= ??????
+    7e	= \z{bfe,1012530326400}/\z{bfe,1002530326400}
+    7f	= \z{7fe,10000}/\z{7fe,10100}
+    80	= New Big Name Game(s) in stock!
+    81	= Currently closed.
+    82	= New Theme Games in stock! (Theme No. \z{7fe,10000})
+    83	= New Weekly Game(s) have arrived! (\z{bfe,1012530326400}/
+	+ \z{bfe,1002530326400})
+    84	= Big Names
+    85	= Newest
+    86	= Oldest
+    87	= By Title
+    88	= Available until \z{bfe,1012530326400}/\z{bfe,1002530326400}
+    89	= Theme
+    8a	= Empty
+    8b	= \z{afe,100253264}/\z{afe,101253264}
+

@@ -1,0 +1,283 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x10000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= Back
+     1	= Quit
+     2	= Cancel
+     3	= Continue
+     4	= OK
+     5	= Delete Scores
+     6	= Delete
+     7	= Receive
+     8	= End
+     9	= Instructions
+     a	= Listen
+     b	= Next
+     c	= No
+     d	= OK
+     e	= Play
+     f	= Play
+    10	= Survey
+    11	= Read
+    12	= Try Again
+    13	= Read Again
+    14	= Put on Shelf
+    15	= Ship
+    16	= Wii Menu Data Management Screen
+    17	= Yes
+    18	= High Score
+    19	= Made By
+    1a	= Saving...
+    1b	= Is it OK to delete "\z{7fe,0}"?\n
+	+ Warning: Deleted \z{7ff,200}products\n
+	+ \z{7ff,0}cannot be recovered!
+    1c	= \z{bfe,1022530326400}/\z{bfe,1012530326400}/\z{bfe,1002530346400}
+    1d	/
+    1e	= Game Over
+    1f	= High Score
+    20	= Pause
+    21	= Pts.
+    22	= 1.
+    23	= 2.
+    24	= 3.
+    25	= Pts.
+    26	= \z{bfe,1002520336400}
+    27	= Decide on a \z{7ff,200}place\z{7ff,0} to play the \z{7ff,200}game
+	+ \z{7ff,0}.\z{7ff,200}\n
+	+ \z{7ff,0}Player\z{7ff,100} \z{7fe,10000}\z{7ff,0}, please choose.
+    28	= Now let's begin!
+    29	= Communications with Wii Remote \z{7fe,10000}\n
+	+ have been interrupted.
+    2a	= Lose
+    2b	= Win
+    2c	= -
+    2d	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    2e	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    2f	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    30	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    31	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    32	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    33	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    34	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    35	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    36	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    37	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    38	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    39	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3a	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3b	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3c	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3d	= \z{7fe,0}\z{7fe,100}Software
+    3e	= \z{7fe,0}\z{7fe,100}Music
+    3f	= \z{7fe,0}\z{7fe,100}Publishing
+    40	= Creator:
+    41	= \z{bfe,1002530336400}
+    42	= \z{7fe,10000}:\z{bfe,1012530326400}
+    43	= /\z{7fe,10000}:\z{bfe,1012530326400}
+    44	= Artist
+    45	= \z{7fe,10000}:\z{bfe,1012530326400}
+    46	= Length
+    47	= \z{7fe,10000} Pts.
+    48	= \z{7ff,100}\z{7fe,10000}\z{7ff,0} more!
+    49	= ０１２３４５６７８９ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ　
+    4a	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™\n
+	+ ’°
+    4b	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™\n
+	+ ’°
+    4c	= There is a problem with the \z{7ff,200}Wii System\n
+	+ Memory\z{7ff,0}, so \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used.
+	+ \z{7fe,0}
+    4d	= To use \z{7ff,200}WiiConnect24\z{7ff,0}, a system update is \n
+	+ required. Refer to the Wii Operations \n
+	+ Manual for details.\z{7fe,0}
+    4e	= \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used\n
+	+ because an error has occurred.\n
+	+ Reset and try again.\z{7fe,0}
+    4f	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    50	= The \z{7ff,200}WiiConnect24\z{7ff,0} setting is not turned 
+	+ \z{7ff,100}on\z{7ff,0}.\n
+	+ Please check the settings under \z{7ff,200}Wii \n
+	+ Options\z{7ff,0}. Refer to the Wii Operations \n
+	+ Manual for details. \z{7fe,0}
+    51	= An internet connection cannot be \n
+	+ established, so \z{7ff,200}WiiConnect24\z{7ff,0} cannot be \n
+	+ used. Check the internet settings and \n
+	+ connection. Refer to the Wii Operations \n
+	+ Manual for details. \z{7fe,0}
+    52	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    53	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    54	= There is a problem with the \z{7ff,200}Wii System\n
+	+ Memory\z{7ff,0}, so \z{7ff,200}WiiConnect24\z{7ff,0} cannot be\n
+	+ used. \z{7fe,0}
+    55	= \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used because an \n
+	+ error has occurred. Reset and try again. \z{7fe,0}
+    56	/
+    57	= Use of network features has been\n
+	+ restricted. Please check the settings for\n
+	+ Parental Controls under Wii Options. \z{7fe,0}
+    58	= \n
+	+ (Error code: \z{bfe,1002530366400})
+    59	= Ａ\z{8ff,10032} \z{8ff,10064}Next
+    5a	= High Score
+    5b	= High Score
+    5c	= Length
+    5d	= NEW
+    5e	= Press the \z{7ff,100}1 \z{7ff,0}and\z{7ff,100} 2 Buttons\z{7ff,0} on the
+	+  Wii Remote.\n
+	+ Select \z{7ff,200}OK \z{7ff,0}when all players have registered.
+    5f	= Wii Remote Registration
+    60	= You can send \z{7ff,200}surveys\z{7ff,0} from\n
+	+ the \z{7ff,200}Wario-Man Super Store\n
+	+ \z{7ff,0}at any time.\n
+    61	= Fill out a \z{7ff,200}survey\z{7ff,0} for\n
+	+ "\z{7fe,0}"?
+    62	= Checking if you can send...\n
+	+ Please wait.
+    63	= PHRASE-\z{bfe,1012530326400}
+    64	= \z{7ff,600}SCORE\z{7ff,400}\z{bfe,1002530346400}0 PHRASE-
+	+ \z{bfe,1012530326400} \z{7ff,700}TOP\z{7ff,400}\z{bfe,1022530346400}0
+    65	= Games
+    66	= Comics
+    67	= Music
+

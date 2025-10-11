@@ -1,0 +1,248 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x10000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= Saving!
+     1	= Is it OK to delete "\z{7fe,0}"?\n
+	+ Warning: Deleted \z{7ff,200}products\n
+	+ \z{7ff,0}cannot be recovered!
+     2	= \z{bfe,1012530326400}/\z{bfe,1022530326400}/\z{bfe,1002530346400}
+     3	/
+     4	= Game Over
+     5	= 
+     6	= Pause
+     7	=  Pts.
+     8	= 1.
+     9	= 2.
+     a	= 3.
+     b	=  Pts.
+     c	= \z{bfe,1002520336400}
+     d	= Decide on a \z{7ff,200}place\z{7ff,0} to play the \z{7ff,200}game
+	+ \z{7ff,0}.\z{7ff,200}\n
+	+ \z{7ff,0}Player\z{7ff,100} #\z{7fe,10000}\z{7ff,0}, please choose.
+     e	= Now let's begin!
+     f	= Communications with Wii Remote #\z{7fe,10000}\n
+	+ have been interrupted.
+    10	= Lose
+    11	= Win
+    12	= -
+    13	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    14	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    15	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    16	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    17	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    18	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    19	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    1a	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    1b	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    1c	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    1d	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    1e	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    1f	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    20	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    21	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    22	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    23	= Software
+    24	= Music
+    25	= Publishing
+    26	= Creator:
+    27	= \z{bfe,1002530326400}
+    28	= \z{bfe,1002530346400}
+    29	= \z{bfe,1002530336400}
+    2a	= \z{7fe,10000}:\z{bfe,1012530326400}
+    2b	= /\z{7fe,10000}:\z{bfe,1012530326400}
+    2c	= Artist
+    2d	= \z{7fe,10000}:\z{bfe,1012530326400}
+    2e	= Length
+    2f	= \z{7fe,10000} Pts.
+    30	= \z{7fe,10000}
+    31	= \z{7fe,10000}
+    32	= ０１２３４５６７８９ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ　
+    33	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™
+    34	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™
+    35	= There is a problem with\n
+	+ \z{7ff,200}Wii system memory\z{7ff,0}, so\n
+	+ \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used.\z{7fe,0}
+    36	= To use \z{7ff,200}WiiConnect24\z{7ff,0}, a system update is \n
+	+ required. Refer to the Wii Operations \n
+	+ Manual for details.\z{7fe,0}
+    37	= \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used\n
+	+ because an error has occurred.\n
+	+ Reset and try again.\z{7fe,0}
+    38	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    39	= The \z{7ff,200}WiiConnect24\z{7ff,0} setting is not turned 
+	+ \z{7ff,100}on\z{7ff,0}.\n
+	+ Please check the settings under \z{7ff,200}Wii \n
+	+ Options\z{7ff,0}. Refer to the Wii Operations \n
+	+ Manual for details. \z{7fe,0}
+    3a	= An Internet connection cannot be \n
+	+ established, so \z{7ff,200}WiiConnect24\z{7ff,0} cannot be \n
+	+ used. Check the Internet settings and \n
+	+ connection. Refer to the Wii Operations \n
+	+ Manual for details. \z{7fe,0}
+    3b	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    3c	= \z{7ff,200}WiiConnect24\z{7ff,0} is temporarily unavailable.\n
+	+ Please try again later. \z{7fe,0}
+    3d	= There is a problem with \z{7ff,200}Wii system \n
+	+ memory\z{7ff,0}, so \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used. 
+	+ \z{7fe,0}
+    3e	= \z{7ff,200}WiiConnect24\z{7ff,0} cannot be used because an \n
+	+ error has occurred. Reset and try again. \z{7fe,0}
+    3f	= Could not obtain the latest information.\n
+	+ Please try again later. \z{7fe,0}
+    40	= Use of network features has been \n
+	+ restricted. Please check the settings\n
+	+ for \z{7ff,200}Parental Controls\z{7ff,0} under \z{7ff,200}Wii Options
+	+ \z{7ff,0}. \z{7fe,0}
+    41	= \n
+	+ (Error code: \z{bfe,1002530366400})
+    42	= Press the \z{7ff,100}1 \z{7ff,0}and\z{7ff,100} 2 Buttons\z{7ff,0} on the
+	+  Wii Remote.\n
+	+ Select \z{7ff,200}OK \z{7ff,0}when all players have registered.
+    43	= You can send \z{7ff,200}surveys\z{7ff,0} from\n
+	+ the \z{7ff,200}Wario-Man Super Store\n
+	+ \z{7ff,0}at any time.\n
+    44	= Fill out a \z{7ff,200}survey\z{7ff,0} for\n
+	+ "\z{7fe,0}"?
+    45	= Checking if you can send...\n
+	+ Please wait.
+

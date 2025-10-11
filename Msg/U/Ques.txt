@@ -1,0 +1,94 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x50000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= Pick a \z{7ff,200}comment\z{7ff,0} to send to \z{7fe,0}.
+     1	= Rank \z{7ff,200}how much you liked it \z{7ff,0}from 1 to 5.
+     2	= \z{7fe,10000}/\z{7fe,10100}
+     3	= \z{bfe,1012530326400}/\z{bfe,1022530326400}/\z{bfe,1002530326400}
+     4	= Games
+     5	= Music
+     6	= Comics
+     7	= Looked very professional!
+     8	= Gave me goose bumps!
+     9	= Funny!
+     a	= Cool graphics!
+     b	= Great music!
+     c	= Didn't see that coming!
+     d	= I want a sequel!
+     e	= Very original!
+     f	= That was hard!
+    10	= You must have worked hard!
+    11	= Looked very professional!
+    12	= How...moving!
+    13	= Funny!
+    14	= Great art style!
+    15	= Hilarious punch line!
+    16	= That was surprising!
+    17	= I wanna read the next one!
+    18	= Unique!
+    19	= Surreal...
+    1a	= You must have worked hard!
+    1b	= Sounded very professional!
+    1c	= Gave me goose bumps!
+    1d	= Funny!
+    1e	= Made me wanna sing!
+    1f	= Can't wait to hear it again!
+    20	= Wasn't expecting that!
+    21	= I wanna hear the next one!
+    22	= Unique!
+    23	= Fun to play!
+    24	= You must have worked hard!
+    25	= Quit filling out the \z{7ff,200}survey\z{7ff,0}?
+    26	= Is it OK to send this?
+    27	= Sending...
+    28	= Date received: \z{bfe,1012530326400}/\z{bfe,1022530326400}/
+	+ \z{bfe,1002530326400}
+    29	= To \z{7fe,0}
+    2a	= From \z{7fe,0}
+

@@ -1,0 +1,269 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x20000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+0 = 你要向Nintendo DS\z{7ff,200}发送\z{7ff,0}什么内容？\n
+	+ 选择一个\z{7ff,200}商品\z{7ff,0}并按下\z{7ff,100}A键\z{7ff,0}。
+1 = 在你的DS系统上选择\z{7ff,200}发送\z{7ff,0}或\z{7ff,200}接收\z{7ff,0}。
+2 = 决定存放\z{7ff,200}商品\z{7ff,0}的地方。\z{7ff,200}\n
+	+\z{7ff,0}用\z{7ff,100}A和B键\z{7ff,0}抓取商品。
+3 = 这里是\z{7ff,200}配送中心\z{7ff,0}，\n
+	+ 在这里发送和接收\z{7ff,200}商品\z{7ff,0}。
+4 = 你可以与Nintendo DS上的\n
+	+ 《瓦力欧制造D.I.Y.》交换\z{7ff,200}商品\z{7ff,0}。\040
+5 = 你可以连接到\z{7ff,200}Nintendo Wi-Fi\n
+	+ Connection\z{7ff,0}并接收新的\z{7ff,200}游戏\z{7ff,0}。
+6 = 你可以与其他拥有《瓦力欧制造D.I.Y. 展示柜》\n
+	+ 的玩家交换\z{7ff,200}商品\z{7ff,0}。
+7 =\z{7ff,200}D.I.Y.好友通知开关\n
+	+ \z{7ff,0}处于\z{7ff,300}关闭\z{7ff,0}状态。
+8 =\z{7ff,200}D.I.Y.好友通知开关\n
+	+ \z{7ff,0}处于\z{7ff,100}开启\z{7ff,0}状态。
+9 = 选择一位\z{7ff,200}D.I.Y.好友\z{7ff,0}并按下\z{7ff,100}A键\z{7ff,0}。\n
+	+ 选择完成后，按\z{7ff,200}确定\z{7ff,0}。
+a = 在这里选择\z{7ff,200}Wii好友\z{7ff,0}--\n
+	+ 一次最多发送给8人！
+b = 选择要\z{7ff,200}发送\z{7ff,0}的\z{7ff,200}商品\z{7ff,0}。
+c = 你要向你的\z{7ff,200}Wii好友\z{7ff,0}\z{7ff,200}发送\z{7ff,0}什么？\n
+	+ 选择一个\z{7ff,200}商品\z{7ff,0}并按下\z{7ff,100}A键\z{7ff,0}。
+d = 这是仅显示\z{7ff,200}D.I.Y.\z{7ff,0}\z{7ff,200}好友\z{7ff,0}的按钮。\n
+	+ 当前处于\z{7ff,300}关闭\z{7ff,0}状态。
+e = 这是仅显示\z{7ff,200}D.I.Y.\z{7ff,0}\z{7ff,200}好友\z{7ff,0}的按钮。\n
+	+ 当前处于\z{7ff,100}开启\z{7ff,0}状态。
+f = 暂无\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此目前无法\z{7ff,200}发送\z{7ff,0}任何\z{7ff,200}游戏\z{7ff,0}。
+10 = 有1位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}1个\z{7ff,200}游戏\z{7ff,0}。
+11 = 有2位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}2个\z{7ff,200}游戏\z{7ff,0}。
+12 = 暂无\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此目前无法\z{7ff,200}发送\z{7ff,0}任何\z{7ff,200}漫画\z{7ff,0}。
+13 = 有1位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}1册\z{7ff,200}漫画\z{7ff,0}。
+14 = 有2位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}2册\z{7ff,200}漫画\z{7ff,0}。
+15 = 暂无\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此目前无法\z{7ff,200}发送\z{7ff,0}任何\z{7ff,200}唱片\z{7ff,0}。
+16 = 有1位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}1张\z{7ff,200}唱片\z{7ff,0}。
+17 = 有2位\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此你还可以\z{7ff,200}发送\z{7ff,0}2张\z{7ff,200}唱片\z{7ff,0}。
+18 = 向\z{7ff,200}D.I.Y. Wii 好友\z{7ff,0}\z{7ff,200}发送\z{7ff,0}一个\z{7ff,200}商品\z{7ff,0}。
+19 = 似乎暂无\z{7ff,200}工作人员\z{7ff,0}可用，\n
+	+ 因此目前无法向\z{7ff,200}Wii 好友\z{7ff,0}\z{7ff,200}发送\z{7ff,0}内容。
+1a = 准备就绪后，按\z{7ff,200}确定\z{7ff,0}进行\z{7ff,200}发送\z{7ff,0}。
+    1b	= D S
+1c = 任天堂软件商店
+    1d	= W i i
+1e = 什么？
+1f = 谁？
+20 = 接收“\z{7fe,0}”吗？
+21 = 已拥有“\z{7fe,0}”。
+22 = 接收中……
+23 = 有包裹送达！
+24 = 来自\z{7fe,0}的包裹已送达！
+25 = 发送中……
+26 = D.I.Y.好友通知开关
+27 = 取消“\z{7fe,0}”的发送吗？
+28 = 取消中……\n
+	+ 请稍候。
+29 = 手中的\z{7ff,200}商品\z{7ff,0}将被删除。\n
+	+ 确定要这样做吗？真的要删除吗？
+2a = 正在搜索范围内的DS系统……
+2b = 已找到DS系统！
+2c = 正在向DS主机发送目录数据。请稍候。
+2d = 等待DS系统输入。
+2e = 将\z{7ff,200}商品\z{7ff,0}放置在DS系统的货架上。
+2f = 正在连接\z{7ff,200}Nintendo WFC\z{7ff,0}……\n
+	+ 请稍候。
+30 = 要断开与\z{7ff,200}Nintendo WFC\z{7ff,0}的连接吗？
+31 = 正在断开与\z{7ff,200}Nintendo WFC\z{7ff,0}的连接。
+32 = 已断开与\z{7ff,200}Nintendo WFC\z{7ff,0}的连接。
+33 = 无法连接到\z{7ff,200}Nintendo Wi-Fi Connection\z{7ff,0}。\n
+	+ 如需帮助，请查阅软件说明书，\n
+	+ 或访问support.nintendo.com。\z{7fe,0}
+34 = 要么是\z{7ff,200}Nintendo Wi-Fi Connection\z{7ff,0}当前流量过高，\n
+	+ 要么是服务暂时中断。请稍后再试。\n
+	+ 如需帮助，请访问support.nintendo.com。\z{7fe,0}
+35 = 该软件对应的\z{7ff,200}Nintendo Wi-Fi Connection\z{7ff,0}服务已终止。\n
+	+ 如需了解当前支持Nintendo Wi-Fi Connection\n
+	+ 的软件列表，请访问support.nintendo.com。\z{7fe,0}\040
+36 =\z{7ff,200}Wii系统内存\z{7ff,0}的剩余空间不足。\n
+	+ 请\z{7ff,300}关闭\z{7ff,0}主机或返回\z{7ff,200}Wii菜单\z{7ff,0}。\z{7fe,0}
+37 =\z{7ff,200}Wii系统内存\z{7ff,0}已损坏。\n
+	+ 详情请参阅主机使用说明书。\z{7fe,0}
+38 = 无法连接互联网。\n
+	+ 请确认\z{7ff,200}Wii主机\z{7ff,0}的互联网设置。\z{7fe,0}
+    39	/
+3a = 通信错误。你已与\n
+ 	+ Nintendo Wi-Fi Connection\n
+ 	+ 断开连接。请重试。\n
+	+ 如需帮助，请访问support.nintendo.com。\z{7fe,0}
+3b = 通信错误。请重试。\n
+	+ 如需帮助，请访问support.nintendo.com。\z{7fe,0}
+3c = 下载失败。请重试。\n
+	+ 如需帮助，请访问support.nintendo.com。\z{7fe,0}
+3d = 发生错误，无法使用\n
+	+ Nintendo Wi-Fi Connection。\n
+	+ 重启后重试。\n
+	+ 如需帮助，请访问support.nintendo.com。\z{7fe,0}
+3e = 发生通信错误。
+3f = \n
+	+ （错误代码：\z{7fe,10000}）
+40 = 处理中……\n
+	+ 请稍候。
+41 = 连接已中断。
+42 = 发生通信错误。
+43 = 无法进行\z{7ff,200}无线通信\z{7ff,0}。
+44 =\z{7ff,200}任天堂软件商店\z{7ff,0}已关闭。
+45 = 正在接收\z{7ff,200}商品\z{7ff,0}……\n
+	+ 请稍候。
+46 = 正在下载\z{7ff,200}知名人士信息\z{7ff,0}……\n
+	+ 请稍候。
+47 = 知名人士制作的\z{7ff,200}游戏\n
+	+ \z{7ff,400}\z{7ff,0}终将在此处出现。
+48 = 正在从\z{7ff,200}任天堂软件商店\z{7ff,0}下载信息……\n
+	+ 请稍候。
+49 = 挑战赛获奖的\z{7ff,200}游戏\z{7ff,400}\n
+	+\z{7ff,0}终将在此处出现……敬请期待。
+4a = 这里几乎每周都会有\n
+	+ 新的\z{7ff,200}游戏\z{7ff,0}上线！敬请期待……
+4b = 已拥有\z{7fe,0}。
+4c = 发生通信错误。
+4d = 正在检查是否可以\z{7ff,200}发送\z{7ff,0}……\n
+	+ 请稍候。
+4e = 要将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,200}\z{7ff,300}关闭\z{7ff,0}吗？
+4f = 要将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,200}\z{7ff,100}开启\z{7ff,0}吗？
+50 = 正在检查\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}的状态……\n
+	+ 请稍候。
+51 = 正在将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,200}\z{7ff,300}关闭\z{7ff,0}……\n
+	+ 请稍候。
+52 = 正在将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,100}开启\z{7ff,0}……\n
+	+ 请稍候。
+53 = 正在更新\z{7ff,200}D.I.Y.好友通知数据\z{7ff,0}……\n
+	+ 请稍候。\040
+54 = 当你将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,300}关闭\z{7ff,0}后，\n
+	+ 短时间内仍可能会收到\z{7ff,200}游戏\z{7ff,0}、\n
+	+ \z{7ff,200}唱片\z{7ff,0}和\z{7ff,200}漫画\z{7ff,0}。
+55 =\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 已\z{7ff,100}开启\z{7ff,0}！
+56 = 无待接收的内容。
+57 = 无法将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,300}关闭\z{7ff,0}。\n
+	+ 请重试。
+58 = 无法将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,100}开启\z{7ff,0}。
+59 = 无法将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,100}开启\z{7ff,0}。\n
+	+ 请重试。
+5a = 将此开关设置为\z{7ff,100}开启\z{7ff,0}，即可识别拥有\n
+	+ 《瓦力欧制造D.I.Y. 展示柜》的\z{7ff,200}Wii好友\z{7ff,0}，\n
+	+ 从而发送和接收\z{7ff,200}游戏\z{7ff,0}、\z{7ff,200}唱片\z{7ff,0}和\z{7ff,200}漫画\z{7ff,0}。
+5b = 将\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,100}开启\z{7ff,0}。
+5c =\z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}处于\z{7ff,300}关闭\z{7ff,0}状态，\n
+	+ 但有包裹送达！
+5d = 似乎没有待接收的包裹。
+5e = 你可以随时用此开关将\n
+	+ \z{7ff,200}D.I.Y.好友通知开关\z{7ff,0}\n
+	+ 设置为\z{7ff,100}开启\z{7ff,0}。
+5f = 配送中心
+60 = 知名人士游戏
+61 = 任天堂软件商店
+62 = 主题游戏
+63 = 每周游戏
+64 = 发送给Wii好友
+65 = 谁？
+66 = 由你听说过（或没听说过）的人制作的游戏。
+67 = 这里终将出现由你听说过\n
+	+ （或没听说过）的人制作的游戏。
+68 = 挑战赛获奖者公布！
+69 = 挑战赛获奖游戏。敬请期待……
+6a = 这里几乎每周都会有新游戏上线！
+6b = 暂无新商品上线，\n
+	+ 但所有过往商品均可获取。
+6c = 知名人士游戏
+6d = 排序方式
+6e = 主题游戏
+6f = 详情
+70 = 主题编号：\z{7fe,10000}
+71 = 每周游戏
+72 = 知名人士
+73 = 最新发布
+74 = 最早发布
+75 = 按标题
+76 = 游戏排序
+    77	= \z{bfe,1012530326400}/\z{bfe,1002530326400} - \z{bfe,1032530326400}/
+	+ \z{bfe,1022530326400}
+78 = 征集期间
+79 = 主题
+7a = 领取截止日期：\n
+	+\z{bfe,1012530326400}/\z{bfe,1002530326400}！
+7b =\z{7ff,100}售罄
+    7c	= ??/??
+    7d	= ??????
+    7e	=\z{bfe,1012530326400}/\z{bfe,1002530326400}
+    7f	=\z{7fe,10000}/\z{7fe,10100}
+80 = 新的知名人士游戏已上架！
+81 = 当前已关闭。
+82 = 新的主题游戏已上架！（主题编号：\z{7fe,10000}）
+83 = 新的每周游戏已送达！（\z{bfe,1012530326400}/\z{bfe,1002530326400}）
+84 = 知名人士
+85 = 最新发布
+86 = 最早发布
+87 = 按标题
+88 = 截止日期：\z{bfe,1012530326400}/\z{bfe,1002530326400}
+89 = 主题
+8a = 空
+    8b	=\z{afe,100253264}/\z{afe,101253264}
+

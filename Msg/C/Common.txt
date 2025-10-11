@@ -1,0 +1,272 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 4
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x04
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = []
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x10000	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+0 = 返回
+1 = 退出
+2 = 取消
+3 = 继续
+4 = 确定
+5 = 删除分数
+6 = 删除
+7 = 接收
+8 = 结束
+9 = 说明
+a = 聆听
+b = 下一个
+c = 否
+d = 确定
+e = 游玩
+f = 播放
+10 = 调查
+11 = 阅读
+12 = 再来一次
+13 = 再读一次
+14 = 放入书架
+15 = 发货
+16 = Wii菜单保存数据画面
+17 = 是
+18 = 最高分
+19 = 制作方
+1a = 正在保存...
+1b = 可以删除“\z{7fe,0}”吗？\n
+	+ 警告：删除的\z{7ff,200}商品 \n
+	+\z{7ff,0}无法恢复！
+    1c	=\z{bfe,1022530326400}/\z{bfe,1012530326400}/\z{bfe,1002530346400}
+    1d	/
+1e = 游戏结束
+1f = 最高分
+20 = 暂停
+21 = 分
+22 = 1.
+23 = 2.
+24 = 3.
+25 = 分
+    26	=\z{bfe,1002520336400}
+27 = 决定玩\z{7ff,200}游戏\z{7ff,0}的\z{7ff,200}位置\z{7ff,0}。\z{7ff,200}\n
+	+ \z{7ff,0}玩家\z{7ff,100}\z{7fe,10000}\z{7ff,0}，请选择。
+28 = 现在开始吧！
+29 = 与Wii遥控器\z{7fe,10000}的通信 \n
+	+ 已中断。
+2a = 失败
+2b = 胜利
+    2c	= -
+    2d	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    2e	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    2f	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    30	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ abcdefghijklm\n
+	+ nopqrstuvwxyz\n
+	+ 0123456789  \040
+    31	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    32	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    33	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    34	= ÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖŒÙÚÛÜÇÑ   \n
+	+ àáâäèéêëìíîïòóôöœùúûüçñß  \n
+	+             \040
+    35	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    36	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    37	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    38	= .,!?¡¿~:;/&()\n
+	+ []<>"'*%@#ܠ£$\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ  ܓܔܕܖܗ\n
+	+ 0123456789+-=
+    39	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3a	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3b	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+    3c	= ABCDEFGHIJKLM\n
+	+ NOPQRSTUVWXYZ\n
+	+ ܀܁܂܃܄܅܆܇܈܉܊܋܌܍\n
+	+ ܎܏ܐܑܒ       \n
+	+ 0123456789  \040
+3d =\z{7fe,0}\z{7fe,100}软件
+3e =\z{7fe,0}\z{7fe,100}音乐
+3f =\z{7fe,0}\z{7fe,100}出版
+40 = 创作者：
+    41	= \z{bfe,1002530336400}
+    42	= \z{7fe,10000}:\z{bfe,1012530326400}
+    43	= /\z{7fe,10000}:\z{bfe,1012530326400}
+44 = 艺术家
+    45	= \z{7fe,10000}:\z{bfe,1012530326400}
+46 = 时长
+47 = \z{7fe,10000}分
+48 = 还有\z{7ff,100}\z{7fe,10000}\z{7ff,0}！
+    49	= ０１２３４５６７８９ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ　
+    4a	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™\n
+	+ ’°
+    4b	= 0123456789ABCDEF\n
+	+ GHIJKLMNOPQRSTUV\n
+	+ WXYZabcdefghijkl\n
+	+ mnopqrstuvwxyzÀÁ\n
+	+ ÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒ\n
+	+ ÓÔÕÖØÙÚÛÜÝßàáâãä\n
+	+ åæçèéêëìíîïñòóôõ\n
+	+ öøùúûüý\377ŒœŸ;΄΅Ά·\n
+	+ ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙ\n
+	+ ΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪ\n
+	+ Ϋάέήίΰαβγδεζηθικ\n
+	+ λμνξοπρςστυφχψωϊ\n
+	+ ϋόύώ\n
+	+                     !"#$%&\n
+	+ '()*+,-./:;<=>?@\n
+	+ [\]^_`{|}~¢£¥©«±\n
+	+ ·»×÷‘“”„€←↑→↓∞□△\n
+	+ ◇○◎☆♪♭¡¦§¨ª®´µº¿\n
+	+ ™\n
+	+ ’°
+4c =\z{7ff,200}Wii系统内存\z{7ff,0}出现问题，\n
+	+ \z{7ff,200}WiiConnect24\z{7ff,0}无法使用。\z{7fe,0}
+4d = 要使用\z{7ff,200}WiiConnect24\z{7ff,0}，\n
+	+ 必须更新主机。\n
+	+ 详情请查看主机使用说明书。\z{7fe,0}
+4e = 由于发生错误，\n
+	+ \z{7ff,200}WiiConnect24\z{7ff,0}无法使用。\n
+	+ 重启后再试一次。\z{7fe,0}
+4f =\z{7ff,200}WiiConnect24\z{7ff,0}服务暂时不可用。\n
+	+ 请稍后再试。\z{7fe,0}
+50 =\z{7ff,200}WiiConnect24\z{7ff,0}设置未\z{7ff,100}开启\z{7ff,0}。\n
+	+ 请在\z{7ff,200}Wii设置\z{7ff,0}里检查设置。\n
+	+ 详情请查看主机使用说明书。\z{7fe,0}
+51 = 无法建立互联网连接，\n
+	+ 因此无法使用\z{7ff,200}WiiConnect24\z{7ff,0}。 \n
+	+ 检查互联网设置和连接。\n
+	+ 详情请查看主机使用说明书。\z{7fe,0}
+52 = \z{7ff,200}WiiConnect24\z{7ff,0}服务暂时不可用。\n
+	+ 请稍后再试。\z{7fe,0}
+53 = \z{7ff,200}WiiConnect24\z{7ff,0}服务暂时不可用。\n
+	+ 请稍后再试。\z{7fe,0}
+54 = \z{7ff,200}Wii主机内存\z{7ff,0}出现问题，\n
+	+ \z{7ff,200}WiiConnect24\z{7ff,0}无法使用。\z{7fe,0}
+55 = 由于发生错误，\z{7ff,200}WiiConnect24\z{7ff,0}无法使用。\n
+	+ 重启后再试一次。\z{7fe,0}
+    56	/
+57 = 网络功能的使用已受到限制。请在Wii设置里检查亲子管理设置。\z{7fe,0}
+58 = \n
+	+ （错误代码：\z{bfe,1002530366400}）
+59 = Ⓐ\z{8ff,10032}\z{8ff,10064}下一页
+5a = 最高分
+5b = 最高分
+5c = 时长
+5d = 新
+5e = 按下 Wii遥控器上的\z{7ff,100}1键和2键\z{7ff,0}。\n
+	+ 所有玩家都注册后，选择\z{7ff,200}确定\z{7ff,0}。
+5f = Wii遥控器注册
+60 = 你可以随时从\z{7ff,200}瓦力欧超人百货商店\z{7ff,0}\n
+	+ 发送\z{7ff,200}调查问卷\z{7ff,0}。
+61 = 填写关于“\z{7fe,0}”的\z{7ff,200}调查问卷\z{7ff,0}吗？
+62 = 正在检查是否可以发送……\n
+	+ 请稍候。
+63 = 片段 -\z{bfe,1012530326400}
+64 =\z{7ff,600}分数\z{7ff,400}\z{bfe,1002530346400}0 片段 -
+	+ \z{bfe,1012530326400}\z{7ff,700}顶部\z{7ff,400}\z{bfe,1022530346400}0
+65 = 游戏
+66 = 漫画
+67 = 音乐
+
