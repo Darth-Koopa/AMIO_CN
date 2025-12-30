@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE letter-list SYSTEM "letter-list.dtd">
+
+<letter-list version="1.0">
+	<head>
+		<create user="" date="2014-12-09" />
+		<title>FamicomFont16.txt_chars.txt。xllt</title>
+		<comment></comment>
+	</head>
+
+	<body>
+		<letter>
+		&#x002E; &#x0031; &#x0032; &#x0043; &#x004D; &#x2026; &#x2605; &#x4E00; &#x4E07; &#x4EBA; &#x4EEC; &#x4F0F; &#x4F26; &#x4FC4; &#x514B; 
+		&#x516B; &#x518D; &#x5229; &#x529B; &#x533B; &#x5341; &#x5348; &#x535A; &#x5361; &#x5730; &#x57FA; &#x5821; &#x585E; &#x58EB; &#x592A; &#x5A1C; 
+		&#x5A5A; &#x5B89; &#x5C14; &#x5C81; &#x5E0C; &#x5FB7; &#x611F; &#x6211; &#x62AB; &#x62C9; &#x65AF; &#x671B; &#x6765; &#x683C; &#x6B21; &#x6B27; 
+		&#x6C49; &#x6CE2; &#x6D6E; &#x6F02; &#x7279; &#x7403; &#x74E6; &#x751F; &#x76AE; &#x793C; &#x7A7A; &#x7EBD; &#x7EF4; &#x7F57; &#x821E; &#x8328; 
+		&#x8377; &#x83AB; &#x83B1; &#x8428; &#x86D9; &#x89C9; &#x8BA9; &#x8D85; &#x8DF3; &#x8E48; &#x9752; &#x98CE; &#x9910; &#x9A6C; &#xFF01; 
+		</letter>
+	</body>
+</letter-list>

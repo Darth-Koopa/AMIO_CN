@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE letter-list SYSTEM "letter-list.dtd">
+
+<letter-list version="1.0">
+	<head>
+		<create user="" date="2014-12-09" />
+		<title>1.txt_chars.XLLT</title>
+		<comment></comment>
+	</head>
+
+	<body>
+		<letter>
+		<sp/> &#x002B; &#x002C; &#x002D; &#x002E; &#x0030; &#x0031; &#x0032; &#x0033; &#x0034; &#x0035; &#x0036; &#x0037; &#x0038; &#x0039; &#x003D; 
+		&#x0044; &#x0049; &#x0053; &#x0057; &#x0059; &#x005C; &#x0061; &#x0062; &#x0063; &#x0064; &#x0065; &#x0066; &#x0069; &#x006E; &#x007A; &#x007B; 
+		&#x007D; &#x4E00; &#x4E0B; &#x4E2A; &#x4E2D; &#x4E3B; &#x4E48; &#x4E50; &#x4E66; &#x4EBA; &#x4EC0; &#x4EF6; &#x4EFB; &#x4F5C; &#x4FDD; &#x5165; 
+		&#x5168; &#x518C; &#x518D; &#x51FA; &#x5206; &#x5220; &#x5236; &#x529B; &#x5355; &#x5377; &#x53CB; &#x53D1; &#x53D6; &#x540D; &#x5426; &#x542C; 
+		&#x5468; &#x5531; &#x5546; &#x5668; &#x56DE; &#x578B; &#x5802; &#x58EB; &#x5929; &#x597D; &#x5B58; &#x5B9A; &#x5E97; &#x5FC3; &#x620F; &#x62CC; 
+		&#x636E; &#x63A5; &#x63A7; &#x6405; &#x64AD; &#x6536; &#x653E; &#x6570; &#x65B0; &#x65B9; &#x65E5; &#x65F6; &#x660E; &#x662F; &#x6700; &#x6709; 
+		&#x671F; &#x673A; &#x675F; &#x67B6; &#x67E5; &#x6807; &#x6B21; &#x6B27; &#x6BB5; &#x6BCF; &#x6CE8; &#x6D88; &#x6E38; &#x6F2B; &#x7247; &#x7248; 
+		&#x73A9; &#x74E6; &#x753B; &#x767E; &#x77E5; &#x786E; &#x7A7A; &#x7BB1; &#x7C7B; &#x7ED3; &#x7ED9; &#x7EE7; &#x7EED; &#x8005; &#x8046; &#x83DC; 
+		&#x8BBA; &#x8BC4; &#x8BD5; &#x8BF4; &#x8BFB; &#x8C01; &#x8C03; &#x8D27; &#x8D85; &#x8F6F; &#x8FD4; &#x8FD8; &#x9000; &#x9001; &#x9065; &#x90E8; 
+		&#x914D; &#x957F; &#x95EE; &#x9605; &#x9664; &#x9762; &#x97F3; &#x9876; &#x9898; &#x9AD8; &#xFF01; &#xFF0E; &#xFF1F; &#xFF24; &#xFF29; &#xFF39; 
+
+		</letter>
+	</body>
+</letter-list>
